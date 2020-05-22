@@ -27,9 +27,23 @@ ActiveRecord::Schema.define(version: 2020_05_21_170325) do
     t.string "name"
     t.text "description"
     t.string "created_by"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_specialities_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
+    t.string "status"
+    t.string "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "diseases", "specialities"
+  add_foreign_key "specialities", "users"
 end
