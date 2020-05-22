@@ -10,7 +10,7 @@ RSpec.describe "Diseases", type: :request do
 
   # Test suite for GET /specialities/:speciality_id/disease
   describe 'GET /specialities/:speciality_id/disease' do
-    before { get "/specialities/#{speciality_id}/disease" }
+    before { get "/specialities/#{speciality_id}/diseases" }
 
     context 'when speciality exists' do
       it 'returns status code 200' do
