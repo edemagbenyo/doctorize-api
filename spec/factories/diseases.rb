@@ -5,6 +5,6 @@ FactoryBot.define do
     description  { Faker::Lorem.sentence}
     prevention { Faker::Lorem.sentence }
     treatment { Faker::Lorem.sentence }
-    speciality_id nil
+    speciality
   end
 end

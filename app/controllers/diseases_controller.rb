@@ -40,7 +40,7 @@ class DiseasesController < ApplicationController
     @speciality = Speciality.find(params[:speciality_id])
   end
 
-  def set_todo_item
+  def set_speciality_disease
     @disease = @speciality.diseases.find_by!(id: params[:id]) if @speciality
   end
 end
