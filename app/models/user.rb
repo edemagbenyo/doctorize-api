@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :specialities
+  has_one :healthinfo
 
   validates :name, presence: true
   validates :username, presence: true
