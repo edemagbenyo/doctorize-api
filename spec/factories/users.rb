@@ -2,8 +2,8 @@
 FactoryBot.define do
   factory :user do
     name { Faker::Name.name }
-    email {"foo@bar.com"}
-    username {"foo"}
+    email {Faker::Internet.email}
+    username {Faker::Name.first_name}
     password {"foobar"}
 
     factory :user_with_specialities do
@@ -12,6 +12,12 @@ FactoryBot.define do
       end
       after(:create) do |user, evaluator|
         create_list(:speciality, evaluator.speciality_count, user: user)
+      end
+    end
+
+    factory :user_with_doctor do
+      after(:create) do |user, evaluator|
+        create(:doctor,user: user)
       end
     end
 

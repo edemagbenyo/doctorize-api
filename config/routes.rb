@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   scope 'users/:id' do
     resources :healthinfos , only:[:index, :create, :update]
   end
+  resources :doctors
 end

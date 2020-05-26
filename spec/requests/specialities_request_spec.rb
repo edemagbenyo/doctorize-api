@@ -6,7 +6,6 @@ RSpec.describe "Specialities", type: :request do
   # initialize test data 
   let(:user){create(:user_with_specialities)}
   let(:specialities){user.specialities}
-  # let!(:specialities) { create_list(:speciality, 5, user_id: user.id) }
   let(:speciality) { specialities.first.id }
   # authorize request
   let(:headers) { valid_headers }
@@ -35,9 +34,7 @@ RSpec.describe "Specialities", type: :request do
 
     context 'when request is valid' do
       before { post '/specialities', params: valid_attributes, headers: headers }
-      # it 'returns state code 200' do
-      #   expect(response).to have_http_status(200)
-      # end
+      
     end
 
     context 'when the request is invalid' do

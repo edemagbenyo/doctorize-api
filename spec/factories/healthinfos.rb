@@ -7,6 +7,6 @@ FactoryBot.define do
     height {"5.5" }
     family {Faker::Lorem.sentence}
     personal {Faker::Lorem.sentence}
-    user
+    user 
   end
 end

@@ -5,7 +5,6 @@ class HealthinfosController < ApplicationController
     json_response(@healthinfo)
   end
   def create
-    puts healthinfo_params
     @healthinfo = Healthinfo.create!(healthinfo_params)
     json_response(@healthinfo, :created)
   end
@@ -17,7 +16,7 @@ class HealthinfosController < ApplicationController
 
   private
     def healthinfo_params
-      params.permit(:age, :gender, :weight, :height, :family, :personal)
+      params.permit(:age, :gender, :weight, :height, :family, :personal, :user_id)
     end
     def set_healthinfo
       @healthinfo = current_user.healthinfo

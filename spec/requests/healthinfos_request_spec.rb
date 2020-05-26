@@ -24,7 +24,7 @@ RSpec.describe "Healthinfos", type: :request do
         expect(response).to have_http_status(200)
       end
       it 'returns empty {} heathinfo information' do
-        puts json
+        # puts json
         expect(json).to be_nil
       end
     end
@@ -33,11 +33,10 @@ RSpec.describe "Healthinfos", type: :request do
   describe 'POST /users/:id/healthinfos' do
 
     context 'when healthinfo is valid' do
-      let!(:user){create(:user)}
-      let!(:valid_params){{age: "23", gender: "male", family: "fadf", personal: "personal",user: user}.to_json}
-      before{ post "/users/#{user_id}/healthinfos", params: valid_params, headers: headers }
+      let(:user){create(:user)}
+      let(:valid_params){{age: "23", gender: "male", family: "fadf", personal: "personal", user_id: user.id}.to_json}
+      before{ post "/users/#{user.id}/healthinfos", params: valid_params, headers: headers }
       it 'returns status code :created(201)' do
-        puts json
         expect(response).to have_http_status(:created)
       end
     end
