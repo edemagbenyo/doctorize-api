@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :specialities
   has_one :healthinfo
   has_one :doctor
+  has_many :favourite_doctors
+  has_many :doctors , through: :favourite_doctors
 
   validates :name, presence: true
   validates :username, presence: true

@@ -4,7 +4,7 @@ RSpec.describe "Doctors", type: :request do
 
   let(:user){create(:user)}
   let(:speciality){create(:speciality, {:user_id=> user.id})}
-  let(:user_doctor){create(:user_with_doctor, {})}
+  let(:user_doctor){create(:user_with_doctor)}
   let(:headers){valid_headers}
   describe "GET /doctors" do
     before{ get '/doctors', params: {}, headers: headers}
@@ -15,7 +15,7 @@ RSpec.describe "Doctors", type: :request do
 
   describe "POST /doctors" do
     context "with valid data" do
-      let(:valid_params){{:name=>"Dr. Edem", :hospital=>"Clinic Julienne", :age=>"33", :experience_year=>"2", :user_id=>user.id, :speciality_id=>speciality.id}.to_json}
+      let(:valid_params){{:name=>"Dr. Edem", :hospital=>"Clinic Julienne", :age=>"33", :experience_year=>"2", :user_id=>user.id, :speciality_id=>speciality.id, :city=>"Accra", :region=>"GA", :country=>"GHANA"}.to_json}
       before{post '/doctors', params: valid_params, headers: headers}
       it "return status 201 with valid attributes" do
         expect(response).to have_http_status(201)
@@ -40,6 +40,24 @@ RSpec.describe "Doctors", type: :request do
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
       end
+    end
+  end
+
+  describe "GET doctors/:id" do
+    # let(doctor){user_doctor.doctor}
+    before{ get "/doctors/#{user_doctor.doctor.id}", params: {}, headers: headers}
+
+    it "return with status 200" do
+      expect(response).to have_http_status(200)
+    end
+    it "returns an object with name" do 
+      expect(json).to include("name")
+    end
+    it "returns an object with hospital" do 
+      expect(json).to include("hospital")
+    end
+    it "returns an object with country" do 
+      expect(json).to include("country")
     end
   end
 

@@ -6,6 +6,10 @@ FactoryBot.define do
     hospital { Faker::Name.name }
     experience_year {Random.new(10)}
     user
-    speciality_id { 1 }
+    speciality
+    city { Faker::Address.city }
+    region { Faker::Address.state }
+    country { Faker::Address.country }
+
   end
 end

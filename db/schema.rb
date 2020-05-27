@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_155343) do
+ActiveRecord::Schema.define(version: 2020_05_26_192818) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 2020_05_26_155343) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer "doctor_id", null: false
+    t.integer "appointment_id", null: false
+    t.string "status"
+    t.string "rate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["appointment_id"], name: "index_bookings_on_appointment_id"
+    t.index ["doctor_id"], name: "index_bookings_on_doctor_id"
   end
 
   create_table "diseases", force: :cascade do |t|
@@ -47,8 +58,20 @@ ActiveRecord::Schema.define(version: 2020_05_26_155343) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "city"
+    t.string "region"
+    t.string "country"
     t.index ["speciality_id"], name: "index_doctors_on_speciality_id"
     t.index ["user_id"], name: "index_doctors_on_user_id"
+  end
+
+  create_table "favourite_doctors", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "doctor_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["doctor_id"], name: "index_favourite_doctors_on_doctor_id"
+    t.index ["user_id"], name: "index_favourite_doctors_on_user_id"
   end
 
   create_table "healthinfos", force: :cascade do |t|
@@ -85,13 +108,18 @@ ActiveRecord::Schema.define(version: 2020_05_26_155343) do
     t.string "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
   end
 
   add_foreign_key "appointments", "doctors"
   add_foreign_key "appointments", "users"
+  add_foreign_key "bookings", "appointments"
+  add_foreign_key "bookings", "doctors"
   add_foreign_key "diseases", "specialities"
   add_foreign_key "doctors", "specialities"
   add_foreign_key "doctors", "users"
+  add_foreign_key "favourite_doctors", "doctors"
+  add_foreign_key "favourite_doctors", "users"
   add_foreign_key "healthinfos", "users"
   add_foreign_key "specialities", "users"
 end

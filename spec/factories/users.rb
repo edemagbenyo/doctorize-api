@@ -4,6 +4,7 @@ FactoryBot.define do
     name { Faker::Name.name }
     email {Faker::Internet.email}
     username {Faker::Name.first_name}
+    image {Faker::Placeholdit.image}
     password {"foobar"}
 
     factory :user_with_specialities do
