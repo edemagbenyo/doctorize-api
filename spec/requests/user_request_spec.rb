@@ -8,6 +8,16 @@ RSpec.describe 'Users API', type: :request do
     attributes_for(:user, password_confirmation: user.password)
   end
 
+  describe 'GET /user' do
+    context 'when token is valid and exist' do
+      before { post '/signup', params: valid_attributes.to_json, headers: headers }
+      before{get '/user', params: {}, headers: valid_headers}
+      it 'return the user information' do
+        puts json
+        # expect(json).eq user
+      end
+    end
+  end
   # User signup test suite
   describe 'POST /signup' do
     context 'when valid request' do

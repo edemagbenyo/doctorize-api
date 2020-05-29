@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
   post 'auth/login', to: 'authentication#authenticate'
   post 'signup', to: 'users#create'
+  get 'user', to: 'users#index'
   scope 'users/:id' do
     resources :healthinfos , only:[:index, :create, :update]
   end
