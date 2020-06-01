@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   resources :specialities do
     resources :diseases
   end
+  get 'specialities/:speciality_id/doctors', to: 'specialities#doctors'
   post 'auth/login', to: 'authentication#authenticate'
   post 'signup', to: 'users#create'
   get 'user', to: 'users#index'
   scope 'users/' do
     resources :healthinfos , only:[:index, :create, :update]
   end
-  resources :doctors, only:[:index, :create, :update]
   resources :appointments, only:[:index, :create, :update]
   resources :doctors, only:[:index, :create, :update, :show]
 

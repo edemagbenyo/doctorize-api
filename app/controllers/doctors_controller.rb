@@ -3,7 +3,7 @@ class DoctorsController < ApplicationController
 
   def index
     @doctors = Doctor.all
-    json_response(@doctors)
+    render :json=>@doctors, include: :speciality
   end
 
   def create
