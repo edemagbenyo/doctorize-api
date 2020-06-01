@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post 'auth/login', to: 'authentication#authenticate'
   post 'signup', to: 'users#create'
   get 'user', to: 'users#index'
-  scope 'users/:id' do
+  scope 'users/' do
     resources :healthinfos , only:[:index, :create, :update]
   end
   resources :doctors, only:[:index, :create, :update]

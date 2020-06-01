@@ -1,11 +1,11 @@
 class HealthinfosController < ApplicationController
   before_action :set_healthinfo, only: [:index, :update, :destroy]
-
   def index
     json_response(@healthinfo)
   end
   def create
-    @healthinfo = Healthinfo.create!(healthinfo_params)
+    # puts current_user.healthinfo
+    @healthinfoppp = current_user.healthinfos.create(healthinfo_params)
     json_response(@healthinfo, :created)
   end
 
@@ -16,9 +16,9 @@ class HealthinfosController < ApplicationController
 
   private
     def healthinfo_params
-      params.permit(:age, :gender, :weight, :height, :family, :personal, :user_id)
+      params.permit(:id, :age, :gender, :weight, :height, :family, :personal)
     end
     def set_healthinfo
-      @healthinfo = current_user.healthinfo
+      @healthinfo = current_user.healthinfos
     end
 end

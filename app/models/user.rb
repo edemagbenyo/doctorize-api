@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :specialities
-  has_one :healthinfo
+  has_many :healthinfos
   has_one :doctor
   has_many :favourite_doctors
   has_many :doctors , through: :favourite_doctors

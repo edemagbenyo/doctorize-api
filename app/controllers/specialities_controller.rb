@@ -1,9 +1,9 @@
 class SpecialitiesController < ApplicationController
   before_action :set_speciality, only: [:show, :update, :destroy]
-
+  skip_before_action :authorize_request, only: [:index]
   # GET /specialities
   def index
-    @specialities = current_user.specialities
+    @specialities = Speciality.all
     json_response(@specialities)
   end
 
