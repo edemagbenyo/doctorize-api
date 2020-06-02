@@ -1,5 +1,5 @@
 class SpecialitiesController < ApplicationController
-  before_action :set_speciality, only: [:show, :update, :destroy]
+  before_action :set_speciality, only: [:show, :update, :destroy, :doctors]
   skip_before_action :authorize_request, only: [:index]
   # GET /specialities
   def index
@@ -15,7 +15,7 @@ class SpecialitiesController < ApplicationController
 
   # GET /specialities/:id
   def show
-    json_response(@speciality)
+    render :json=>@speciality, include: :doctors
   end
 
   # PUT /specialities/:id
@@ -29,6 +29,7 @@ class SpecialitiesController < ApplicationController
     @speciality.destroy
     head :no_content
   end
+
 
   private
 
