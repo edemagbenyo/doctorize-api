@@ -1,6 +1,6 @@
 class DoctorsController < ApplicationController
   before_action :set_doctor, only: [:show, :update, :destroy]
-
+  skip_before_action :authorize_request, only: [:index]
   def index
     @doctors = Doctor.all
     render :json=>@doctors, include: :speciality

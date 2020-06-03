@@ -1,6 +1,6 @@
 class SpecialitiesController < ApplicationController
   before_action :set_speciality, only: [:show, :update, :destroy, :doctors]
-  skip_before_action :authorize_request, only: [:index]
+  skip_before_action :authorize_request, only: [:index, :show]
   # GET /specialities
   def index
     @specialities = Speciality.all
