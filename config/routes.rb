@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'specialities/:speciality_id/doctors', to: 'specialities#doctors'
   post 'auth/login', to: 'authentication#authenticate'
   post 'signup', to: 'users#create'
+  post 'signup_doctor', to: 'users#create_doctor'
   get 'user', to: 'users#index'
   scope 'users/' do
     resources :healthinfos , only:[:index, :create, :update]
