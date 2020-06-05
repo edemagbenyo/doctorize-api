@@ -24,7 +24,8 @@ class UsersController < ApplicationController
       :experience_year => user_params["experience_year"],
       :user_id => user.id,
       :speciality_id => user_params["speciality"],
-      :age =>"0"
+      :age =>"0",
+      :city =>user_params["city"]
     })
     auth_token = AuthenticateUser.new(user.username, user.password).call
     response = {message: Message.account_created, auth_token: auth_token, user: user, doctor: doctor}
@@ -47,6 +48,7 @@ class UsersController < ApplicationController
       :experience_year,
       :hospital,
       :speciality,
+      :city,
       :user
     )
   end

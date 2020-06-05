@@ -2,7 +2,13 @@ class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [ :update, :destroy]
 
   def index
-    render json: Appointment.all, include: :doctor
+    doctor = current_user.doctor
+    if doctor
+      
+      render json: doctor.appointments, include: :user
+    else
+      render json: current_user.appointments, include: :doctor
+    end
   end
   def create
     @new_appoint = Appointment.create!(appointment_params)
