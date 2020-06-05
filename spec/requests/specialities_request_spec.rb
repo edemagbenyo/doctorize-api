@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-include RequestSpecHelper
 
 RSpec.describe 'Specialities', type: :request do
   # initialize test data
