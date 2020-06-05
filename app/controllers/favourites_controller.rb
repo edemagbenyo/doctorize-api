@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FavouritesController < ApplicationController
   def create
     @created_favourite = FavouriteDoctor.create!(favourite_params)

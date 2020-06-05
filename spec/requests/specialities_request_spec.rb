@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 include RequestSpecHelper
 
-RSpec.describe "Specialities", type: :request do
+RSpec.describe 'Specialities', type: :request do
   # initialize test data
   let(:user) { create(:user_with_specialities) }
   let(:specialities) { user.specialities }

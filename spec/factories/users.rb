@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # spec/factories/users.rb
 FactoryBot.define do
   factory :user do
@@ -5,7 +7,7 @@ FactoryBot.define do
     email { Faker::Internet.email }
     username { Faker::Name.first_name }
     image { Faker::Placeholdit.image }
-    password { "foobar" }
+    password { 'foobar' }
 
     factory :user_with_specialities do
       transient do
@@ -17,13 +19,13 @@ FactoryBot.define do
     end
 
     factory :user_with_doctor do
-      after(:create) do |user, evaluator|
+      after(:create) do |user, _evaluator|
         create(:doctor, user: user)
       end
     end
 
     factory :user_with_healthinfo do
-      after(:create) do |user, evaluator|
+      after(:create) do |user, _evaluator|
         create(:healthinfo, user: user)
       end
     end

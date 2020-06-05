@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # app/auth/authenticate_user.rb
 class AuthenticateUser
   def initialize(username, password)
@@ -17,7 +19,7 @@ class AuthenticateUser
   # verify user credentials
   def user
     user = User.find_by(username: username)
-    return user if user && user.authenticate(password)
+    return user if user&.authenticate(password)
 
     # raise Authentication error if credentials are invalid
     raise(ExceptionHandler::AuthenticationError, Message.invalid_credentials)

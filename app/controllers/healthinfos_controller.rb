@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class HealthinfosController < ApplicationController
-  before_action :set_healthinfo, only: [:index, :update, :destroy]
+  before_action :set_healthinfo, only: %i[index update destroy]
   def index
     json_response(@healthinfo)
   end

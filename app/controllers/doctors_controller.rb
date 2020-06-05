@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class DoctorsController < ApplicationController
-  before_action :set_doctor, only: [:show, :update, :destroy]
+  before_action :set_doctor, only: %i[show update destroy]
   skip_before_action :authorize_request, only: [:index]
   def index
     @doctors = Doctor.all
-    render :json => @doctors, include: :speciality
+    render json: @doctors, include: :speciality
   end
 
   def create

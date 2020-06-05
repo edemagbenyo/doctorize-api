@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class SpecialitiesController < ApplicationController
-  before_action :set_speciality, only: [:show, :update, :destroy, :doctors]
-  skip_before_action :authorize_request, only: [:index, :show]
+  before_action :set_speciality, only: %i[show update destroy doctors]
+  skip_before_action :authorize_request, only: %i[index show]
   # GET /specialities
   def index
     @specialities = Speciality.all
@@ -15,7 +17,7 @@ class SpecialitiesController < ApplicationController
 
   # GET /specialities/:id
   def show
-    render :json => @speciality, include: :doctors
+    render json: @speciality, include: :doctors
   end
 
   # PUT /specialities/:id

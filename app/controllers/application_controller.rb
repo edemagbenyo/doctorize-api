@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::API
   include Response
   include ExceptionHandler
@@ -10,6 +12,6 @@ class ApplicationController < ActionController::API
 
   # Check for valid request token and return user
   def authorize_request
-    @current_user = (AuthorizeApiRequest.new(request.headers).call)[:user]
+    @current_user = AuthorizeApiRequest.new(request.headers).call[:user]
   end
 end

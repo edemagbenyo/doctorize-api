@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # app/lib/message.rb
 class Message
   def self.not_found(record = 'record')

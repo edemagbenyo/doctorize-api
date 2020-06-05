@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 include RequestSpecHelper
 
-RSpec.describe "Diseases", type: :request do
+RSpec.describe 'Diseases', type: :request do
   # Initialize the test data
   let(:user) { create(:user) }
   let!(:speciality) { create(:speciality) }
@@ -66,7 +68,7 @@ RSpec.describe "Diseases", type: :request do
 
   # Test suite for PUT /specialities/:speciality_id/disease
   describe 'POST /specialities/:speciality_id/disease' do
-    let(:valid_attributes) { { name: 'Visit Narnia', description: "Visit", prevention: "eat", treatment: "eat" }.to_json }
+    let(:valid_attributes) { { name: 'Visit Narnia', description: 'Visit', prevention: 'eat', treatment: 'eat' }.to_json }
 
     context 'when request attributes are valid' do
       before { post "/specialities/#{speciality_id}/diseases", params: valid_attributes, headers: headers }

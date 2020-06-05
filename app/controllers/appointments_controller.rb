@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class AppointmentsController < ApplicationController
-  before_action :set_appointment, only: [:update, :destroy]
+  before_action :set_appointment, only: %i[update destroy]
 
   def index
     doctor = current_user.doctor
