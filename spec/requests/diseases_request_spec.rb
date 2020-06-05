@@ -3,16 +3,16 @@ include RequestSpecHelper
 
 RSpec.describe "Diseases", type: :request do
   # Initialize the test data
-  let(:user){create(:user)}
+  let(:user) { create(:user) }
   let!(:speciality) { create(:speciality) }
   let!(:diseases) { create_list(:disease, 20, speciality_id: speciality.id) }
   let(:speciality_id) { speciality.id }
   let(:id) { diseases.first.id }
-  let(:headers){valid_headers}
+  let(:headers) { valid_headers }
 
   # Test suite for GET /specialities/:speciality_id/disease
   describe 'GET /specialities/:speciality_id/disease' do
-    before { get "/specialities/#{speciality_id}/diseases", params:{}, headers: headers }
+    before { get "/specialities/#{speciality_id}/diseases", params: {}, headers: headers }
 
     context 'when speciality exists' do
       it 'returns status code 200' do
@@ -77,7 +77,7 @@ RSpec.describe "Diseases", type: :request do
     end
 
     context 'when an invalid request' do
-      before { post "/specialities/#{speciality_id}/diseases", params: {} , headers: headers }
+      before { post "/specialities/#{speciality_id}/diseases", params: {}, headers: headers }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
@@ -128,4 +128,3 @@ RSpec.describe "Diseases", type: :request do
     end
   end
 end
-

@@ -2,7 +2,7 @@
 FactoryBot.define do
   factory :disease do
     name { Faker::Lorem.word }
-    description  { Faker::Lorem.sentence}
+    description { Faker::Lorem.sentence }
     prevention { Faker::Lorem.sentence }
     treatment { Faker::Lorem.sentence }
     speciality

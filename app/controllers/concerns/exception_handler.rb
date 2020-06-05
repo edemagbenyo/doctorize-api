@@ -22,8 +22,10 @@ module ExceptionHandler
       json_response({ message: e.message }, :unprocessable_entity)
     end
   end
+
   private
-    # JSON response with message; Status code 422 - unprocessable entity
+
+  # JSON response with message; Status code 422 - unprocessable entity
   def four_twenty_two(e)
     json_response({ message: e.message }, :unprocessable_entity)
   end

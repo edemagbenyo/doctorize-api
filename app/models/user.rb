@@ -5,7 +5,7 @@ class User < ApplicationRecord
   has_many :appointments
   has_one :doctor
   has_many :favourite_doctors
-  has_many :doctors , through: :favourite_doctors
+  has_many :doctors, through: :favourite_doctors
 
   validates :name, presence: true
   validates :username, presence: true

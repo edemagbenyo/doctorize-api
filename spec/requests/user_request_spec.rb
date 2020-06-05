@@ -11,7 +11,7 @@ RSpec.describe 'Users API', type: :request do
   describe 'GET /user' do
     context 'when token is valid and exist' do
       before { post '/signup', params: valid_attributes.to_json, headers: headers }
-      before{get '/user', params: {}, headers: valid_headers}
+      before { get '/user', params: {}, headers: valid_headers }
       it 'return the user information' do
         puts json
         # expect(json).eq user

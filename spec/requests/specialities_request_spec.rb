@@ -1,11 +1,10 @@
 require 'rails_helper'
 include RequestSpecHelper
 
-
 RSpec.describe "Specialities", type: :request do
-  # initialize test data 
-  let(:user){create(:user_with_specialities)}
-  let(:specialities){user.specialities}
+  # initialize test data
+  let(:user) { create(:user_with_specialities) }
+  let(:specialities) { user.specialities }
   let(:speciality) { specialities.first.id }
   # authorize request
   let(:headers) { valid_headers }
@@ -14,7 +13,7 @@ RSpec.describe "Specialities", type: :request do
   describe 'GET /specialities' do
     # make HTTP get request before each example
     before { get '/specialities', params: {}, headers: headers }
-    
+
     it 'returns specialities' do
       # Note `json` is a custom helper to parse JSON responses
       expect(json).not_to be_empty
@@ -34,7 +33,6 @@ RSpec.describe "Specialities", type: :request do
 
     context 'when request is valid' do
       before { post '/specialities', params: valid_attributes, headers: headers }
-      
     end
 
     context 'when the request is invalid' do

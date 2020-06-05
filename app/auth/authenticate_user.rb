@@ -18,6 +18,7 @@ class AuthenticateUser
   def user
     user = User.find_by(username: username)
     return user if user && user.authenticate(password)
+
     # raise Authentication error if credentials are invalid
     raise(ExceptionHandler::AuthenticationError, Message.invalid_credentials)
   end

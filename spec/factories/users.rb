@@ -2,10 +2,10 @@
 FactoryBot.define do
   factory :user do
     name { Faker::Name.name }
-    email {Faker::Internet.email}
-    username {Faker::Name.first_name}
-    image {Faker::Placeholdit.image}
-    password {"foobar"}
+    email { Faker::Internet.email }
+    username { Faker::Name.first_name }
+    image { Faker::Placeholdit.image }
+    password { "foobar" }
 
     factory :user_with_specialities do
       transient do
@@ -18,7 +18,7 @@ FactoryBot.define do
 
     factory :user_with_doctor do
       after(:create) do |user, evaluator|
-        create(:doctor,user: user)
+        create(:doctor, user: user)
       end
     end
 
@@ -28,7 +28,4 @@ FactoryBot.define do
       end
     end
   end
-   
-
-    
 end

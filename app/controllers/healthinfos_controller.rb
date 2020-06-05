@@ -3,6 +3,7 @@ class HealthinfosController < ApplicationController
   def index
     json_response(@healthinfo)
   end
+
   def create
     # puts current_user.healthinfo
     @healthinfoppp = current_user.healthinfos.create(healthinfo_params)
@@ -15,10 +16,12 @@ class HealthinfosController < ApplicationController
   end
 
   private
-    def healthinfo_params
-      params.permit(:id, :age, :gender, :weight, :height, :family, :personal)
-    end
-    def set_healthinfo
-      @healthinfo = current_user.healthinfos
-    end
+
+  def healthinfo_params
+    params.permit(:id, :age, :gender, :weight, :height, :family, :personal)
+  end
+
+  def set_healthinfo
+    @healthinfo = current_user.healthinfos
+  end
 end

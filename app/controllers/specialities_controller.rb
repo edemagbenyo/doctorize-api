@@ -15,7 +15,7 @@ class SpecialitiesController < ApplicationController
 
   # GET /specialities/:id
   def show
-    render :json=>@speciality, include: :doctors
+    render :json => @speciality, include: :doctors
   end
 
   # PUT /specialities/:id
@@ -29,7 +29,6 @@ class SpecialitiesController < ApplicationController
     @speciality.destroy
     head :no_content
   end
-
 
   private
 

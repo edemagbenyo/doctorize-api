@@ -13,22 +13,22 @@ class UsersController < ApplicationController
   def create_doctor
     # puts user_params["experience_year"]
     user = User.create!({
-      :name => user_params["name"],
-      :username => user_params["username"],
-      :email => user_params["email"],
-      :password => user_params["password"]
-    })
+                          :name => user_params["name"],
+                          :username => user_params["username"],
+                          :email => user_params["email"],
+                          :password => user_params["password"]
+                        })
     doctor = Doctor.create!({
-      :name => user_params["name"],
-      :hospital => user_params["hospital"],
-      :experience_year => user_params["experience_year"],
-      :user_id => user.id,
-      :speciality_id => user_params["speciality"],
-      :age =>"0",
-      :city =>user_params["city"]
-    })
+                              :name => user_params["name"],
+                              :hospital => user_params["hospital"],
+                              :experience_year => user_params["experience_year"],
+                              :user_id => user.id,
+                              :speciality_id => user_params["speciality"],
+                              :age => "0",
+                              :city => user_params["city"]
+                            })
     auth_token = AuthenticateUser.new(user.username, user.password).call
-    response = {message: Message.account_created, auth_token: auth_token, user: user, doctor: doctor}
+    response = { message: Message.account_created, auth_token: auth_token, user: user, doctor: doctor }
     json_response(response, :created)
   end
 
