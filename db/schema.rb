@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2020_05_26_192818) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "appointments", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "doctor_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "doctor_id", null: false
     t.text "info"
     t.string "meeting_link"
     t.string "guest"
@@ -28,8 +31,8 @@ ActiveRecord::Schema.define(version: 2020_05_26_192818) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.integer "doctor_id", null: false
-    t.integer "appointment_id", null: false
+    t.bigint "doctor_id", null: false
+    t.bigint "appointment_id", null: false
     t.string "status"
     t.string "rate"
     t.datetime "created_at", precision: 6, null: false
@@ -43,7 +46,7 @@ ActiveRecord::Schema.define(version: 2020_05_26_192818) do
     t.string "description"
     t.text "prevention"
     t.text "treatment"
-    t.integer "speciality_id", null: false
+    t.bigint "speciality_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["speciality_id"], name: "index_diseases_on_speciality_id"
@@ -54,8 +57,8 @@ ActiveRecord::Schema.define(version: 2020_05_26_192818) do
     t.string "hospital"
     t.string "age"
     t.string "experience_year"
-    t.integer "speciality_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "speciality_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "city"
@@ -66,8 +69,8 @@ ActiveRecord::Schema.define(version: 2020_05_26_192818) do
   end
 
   create_table "favourite_doctors", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "doctor_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "doctor_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["doctor_id"], name: "index_favourite_doctors_on_doctor_id"
@@ -83,7 +86,7 @@ ActiveRecord::Schema.define(version: 2020_05_26_192818) do
     t.text "personal"
     t.text "text1"
     t.text "text2"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_healthinfos_on_user_id"
@@ -93,7 +96,7 @@ ActiveRecord::Schema.define(version: 2020_05_26_192818) do
     t.string "name"
     t.text "description"
     t.string "created_by"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_specialities_on_user_id"
