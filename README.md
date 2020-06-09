@@ -7,7 +7,7 @@
 ![GitHub forks](https://img.shields.io/github/forks/edemagbenyo/doctorize-api?style=social)
 ![Twitter Follow](https://img.shields.io/twitter/follow/edemagbenyo?style=social)
 
-[Doctorize](https://doctorize.herokuapp.com/) provides you the recipes for the best dishes. Browse per category of dishes and find the recipe for you favourite dish. You can also find dishes based on the type of recipes you want.
+[Doctorize](https://doctorize.herokuapp.com/). We provide an easy way for patient to reach to specialist and get medical advices. Doctorize has a directory of the best and experienced doctors .
 
 ![Screenshot of the webpage]()
 
