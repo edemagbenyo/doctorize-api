@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Doctor, type: :model do
   it { should belong_to(:user) }
 
-  it { should have_many(:appointment) }
+  it { should have_many(:appointments) }
   it { should have_many(:patients) }
 
   it { should have_many(:favourite_patients) }
