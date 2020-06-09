@@ -29,5 +29,13 @@ FactoryBot.define do
         create(:healthinfo, user: user)
       end
     end
+
+    factory :user_with_appointments do
+
+      after(:create) do |user,evaluator|
+        create_list(:appointment,5, user: user)
+      end
+      
+    end
   end
 end
