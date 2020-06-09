@@ -10,7 +10,7 @@ RSpec.describe 'Appointments', type: :request do
 
   describe 'GET /appointments' do
     context 'when user has appointents' do
-      before { get "/appointments", params: {}, headers: headers }
+      before { get '/appointments', params: {}, headers: headers }
       it 'return with status code 200' do
         expect(response).to have_http_status(200)
       end
@@ -22,7 +22,7 @@ RSpec.describe 'Appointments', type: :request do
 
     context 'when user has no appointment' do
       let(:user) { create(:user) }
-      before { get "/appointments", params: {}, headers: headers }
+      before { get '/appointments', params: {}, headers: headers }
       it 'return with status code 200' do
         expect(response).to have_http_status(200)
       end

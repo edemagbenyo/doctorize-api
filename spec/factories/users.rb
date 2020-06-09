@@ -31,7 +31,7 @@ FactoryBot.define do
     end
 
     factory :user_with_appointments do
-      after(:create) do |user, evaluator|
+      after(:create) do |user, _evaluator|
         create_list(:appointment, 5, user: user)
       end
     end
