@@ -1,9 +1,8 @@
 FactoryBot.define do
-
   factory :appointment do
     user
     doctor
-    info { Faker::Lorem.sentence}
+    info { Faker::Lorem.sentence }
     meeting_link { Faker::Lorem.sentence }
     guest { Faker::Name.name }
     date { Faker::Date.in_date_period }

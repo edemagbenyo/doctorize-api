@@ -15,7 +15,6 @@ RSpec.describe 'Users API', type: :request do
       before { post '/signup', params: valid_attributes.to_json, headers: headers }
       before { get '/user', params: {}, headers: valid_headers }
       it 'return the user information' do
-        puts json
         # expect(json).eq user
       end
     end

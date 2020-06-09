@@ -8,9 +8,7 @@ Rails.application.routes.draw do
   post 'signup', to: 'users#create'
   post 'signup_doctor', to: 'users#create_doctor'
   get 'user', to: 'users#index'
-  scope 'users/' do
-    resources :healthinfos , only:[:index, :create, :update]
-  end
+  resources :healthinfos , only:[:index, :create, :update]
   resources :appointments, only:[:index, :create, :update]
   resources :doctors, only:[:index, :create, :update, :show]
 

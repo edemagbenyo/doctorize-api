@@ -8,9 +8,9 @@ RSpec.describe 'Healthinfos', type: :request do
   let(:healthinfo) { user.healthinfo }
   let(:headers) { valid_headers }
 
-  describe 'GET /users/healthinfos' do
+  describe 'GET /healthinfos' do
     context 'when healthinfo exists' do
-      before { get "/users/healthinfos", params: {}, headers: headers }
+      before { get "/healthinfos", params: {}, headers: headers }
       it 'returns status code 200' do
         expect(response).to have_http_status(200)
       end
@@ -20,7 +20,7 @@ RSpec.describe 'Healthinfos', type: :request do
     end
     context 'when healthinfo do no exists' do
       let(:user) { create(:user) }
-      before { get "/users/healthinfos", params: {}, headers: headers }
+      before { get "/healthinfos", params: {}, headers: headers }
       it 'returns status code 200' do
         expect(response).to have_http_status(200)
       end
@@ -31,11 +31,11 @@ RSpec.describe 'Healthinfos', type: :request do
     end
   end
 
-  describe 'POST /users/:id/healthinfos' do
+  describe 'POST /healthinfos' do
     context 'when healthinfo is valid' do
       let(:user) { create(:user) }
       let(:valid_params) { { age: '23', gender: 'male', family: 'fadf', personal: 'personal', user_id: user.id }.to_json }
-      before { post "/users/healthinfos", params: valid_params, headers: headers }
+      before { post "/healthinfos", params: valid_params, headers: headers }
       it 'returns status code :created(201)' do
         expect(response).to have_http_status(:created)
       end
