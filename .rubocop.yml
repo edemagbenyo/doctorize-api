@@ -19,7 +19,7 @@ Metrics/AbcSize:
 Metrics/ClassLength:
   Max: 150
 Metrics/BlockLength:
-  ExcludedMethods: ["describe"]
+  ExcludedMethods: ["describe","define","factory"]
 
 Style/Documentation:
   Enabled: false
@@ -46,5 +46,3 @@ Style/HashTransformKeys:
   Enabled: true
 Style/HashTransformValues: 
   Enabled: true
-Metrics/BlockLength:
-  Enabled: false
