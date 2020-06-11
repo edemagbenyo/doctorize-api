@@ -6,9 +6,9 @@ class AppointmentsController < ApplicationController
   def index
     doctor = current_user.doctor
     if doctor
-      render json: doctor.appointments, include: :user
+      render json: doctor.appointments.order(created_at: :desc), include: :user
     else
-      render json: current_user.appointments, include: :doctor
+      render json: current_user.appointments.order(created_at: :desc), include: :doctor
     end
   end
 
