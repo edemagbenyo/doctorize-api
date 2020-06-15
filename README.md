@@ -1,4 +1,5 @@
-# Doctor appointments(Doctorize)
+# Doctorize API
+Medical Doctors appointment 
 
 <!--- These are examples. See https://shields.io for others or to customize this set of shields. You might want to include dependencies, project status and licence info here --->
 ![GitHub repo size](https://img.shields.io/github/repo-size/edemagbenyo/doctorize-api)
@@ -7,16 +8,44 @@
 ![GitHub forks](https://img.shields.io/github/forks/edemagbenyo/doctorize-api?style=social)
 ![Twitter Follow](https://img.shields.io/twitter/follow/edemagbenyo?style=social)
 
-[Doctorize](https://doctorize.herokuapp.com/). We provide an easy way for patient to reach to specialist and get medical advices. Doctorize has a directory of the best and experienced doctors .
+
+<!-- Project details -->
+[Doctorize](https://doctorize.herokuapp.com/).
+
+Doctorize API is the backend powering [Doctorize](https://doctorize.herokuapp.com/) platform. This API is built using Rails API, PostgreSQL as the DB engine. Testing is done with RSpec and Shoulda matchers. The API makes use of JWT token to implement authentication and authorization.
+
+To report a bug or request a feature use this [link](https://github.com/edemagbenyo/doctorize-api/issues).
 
 ![Screenshot of the webpage]()
 
-## Prerequisites
+## About the project
+Doctorize is platform for medical appointment with specialists and GP doctors. Patients from the comfort of their home make appointment with doctors to get medical and professional advices on health issues. It is a full stack mobile responsive application built with React for the frontend and a Ruby on Rails API backend.
+
+
+
+### Built With
+
+* [Ruby](https://www.ruby-lang.org/en/)
+* [Ruby on Rails](https://rubyonrails.org/)
+* [PostgreSQL](https://www.postgresql.org/)
+* [JWT](https://jwt.io/)
+* [RSpec](https://rspec.info/)
+
+
+
+## Getting started
+
+To get this project running on your local machine, follow these steps
+
+### Prerequisites
 
 Before you begin, ensure you have met the following requirements:
 <!--- These are just example requirements. Add, duplicate or remove as required --->
-* You have installed the latest version of `nodejs`
 * You have a `<Windows/Linux/Mac>` machine.
+* `ruby '2.6.3`
+* `rails 6.0.2`
+
+
 
 ## Installing Doctorize
 
@@ -25,26 +54,25 @@ To install Doctorize, follow these steps:
 1. Clone the project
 ```
 git clone git@github.com:edemagbenyo/doctorize-api.git
+
+cd doctorize-api
 ```
-## Available scripts
-
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
+2. Install the gems
+```
+bundle install
+```
+3. Database creation, migration and seeding it
+```
+rails db:create db:migrate db:seed
+```
+4. Start the API development server on **port:3001**
+```
+rails servers -p 3001
+```
+5. Run all test
+```
+bundle exec rspec
+```
 
 ## Contributing to Doctorize
 <!--- If your README is long or you have some specific process or steps you want contributors to follow, consider creating a separate CONTRIBUTING.md file--->
@@ -63,6 +91,7 @@ Alternatively see the GitHub documentation on [creating a pull request](https://
 Thanks to the following people who have contributed to this project:
 
 * [@edemagbenyo](https://github.com/edemagbenyo) 📖
+
 
 
 ## Contact
