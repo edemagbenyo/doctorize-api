@@ -16,7 +16,7 @@ Doctorize API is the backend powering [Doctorize](https://doctorize.herokuapp.co
 
 To report a bug or request a feature use this [link](https://github.com/edemagbenyo/doctorize-api/issues).
 
-![Screenshot of the webpage]()
+![Screenshot of the webpage](https://github.com/edemagbenyo/doctorize-api/blob/implement-backend/public/overview.gif)
 
 ## About the project
 Doctorize is platform for medical appointment with specialists and GP doctors. Patients from the comfort of their home make appointment with doctors to get medical and professional advices on health issues. It is a full stack mobile responsive application built with React for the frontend and a Ruby on Rails API backend.
