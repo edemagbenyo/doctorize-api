@@ -8,7 +8,7 @@ class HealthinfosController < ApplicationController
 
   def create
     # puts current_user.healthinfo
-    @healthinfoppp = current_user.healthinfos.create(healthinfo_params)
+    @healthinfo = current_user.healthinfos.create(healthinfo_params)
     json_response(@healthinfo, :created)
   end
 

@@ -1,5 +1,5 @@
 # Doctorize API
-Medical Doctors appointment 
+Medical Specialists/Doctors appointment 
 
 <!--- These are examples. See https://shields.io for others or to customize this set of shields. You might want to include dependencies, project status and licence info here --->
 ![GitHub repo size](https://img.shields.io/github/repo-size/edemagbenyo/doctorize-api)
@@ -10,11 +10,11 @@ Medical Doctors appointment
 
 
 <!-- Project details -->
-[Doctorize](https://doctorize.herokuapp.com/).
 
 Doctorize API is the backend powering [Doctorize](https://doctorize.herokuapp.com/) platform. This API is built using Rails API, PostgreSQL as the DB engine. Testing is done with RSpec and Shoulda matchers. The API makes use of JWT token to implement authentication and authorization.
 
-To report a bug or request a feature use this [link](https://github.com/edemagbenyo/doctorize-api/issues).
+[Live version](https://doctorize.herokuapp.com/)
+To report a bug or request a feature use this [link](https://github.com/edemagbenyo/doctorize-api/issues)
 
 ![Screenshot of the webpage](https://github.com/edemagbenyo/doctorize-api/blob/implement-backend/public/overview.gif)
 
