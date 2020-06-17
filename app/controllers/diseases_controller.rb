@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class DiseasesController < ApplicationController
   before_action :set_speciality
-  before_action :set_speciality_disease, only: [:show, :update, :destroy]
+  before_action :set_speciality_disease, only: %i[show update destroy]
 
   # GET /specialities/:speciality_id/diseases
   def index
@@ -40,7 +42,7 @@ class DiseasesController < ApplicationController
     @speciality = Speciality.find(params[:speciality_id])
   end
 
-  def set_todo_item
+  def set_speciality_disease
     @disease = @speciality.diseases.find_by!(id: params[:id]) if @speciality
   end
 end

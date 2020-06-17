@@ -1,16 +1,19 @@
-require 'rails_helper'
-include RequestSpecHelper
+# frozen_string_literal: true
 
-RSpec.describe "Diseases", type: :request do
+require 'rails_helper'
+
+RSpec.describe 'Diseases', type: :request do
   # Initialize the test data
+  let(:user) { create(:user) }
   let!(:speciality) { create(:speciality) }
   let!(:diseases) { create_list(:disease, 20, speciality_id: speciality.id) }
   let(:speciality_id) { speciality.id }
-  let(:id) { disease.first.id }
+  let(:id) { diseases.first.id }
+  let(:headers) { valid_headers }
 
   # Test suite for GET /specialities/:speciality_id/disease
   describe 'GET /specialities/:speciality_id/disease' do
-    before { get "/specialities/#{speciality_id}/diseases" }
+    before { get "/specialities/#{speciality_id}/diseases", params: {}, headers: headers }
 
     context 'when speciality exists' do
       it 'returns status code 200' do
@@ -37,7 +40,7 @@ RSpec.describe "Diseases", type: :request do
 
   # Test suite for GET /specialities/:speciality_id/disease/:id
   describe 'GET /specialities/:speciality_id/disease/:id' do
-    before { get "/specialities/#{speciality_id}/disease/#{id}" }
+    before { get "/specialities/#{speciality_id}/diseases/#{id}", params: {}, headers: headers }
 
     context 'when speciality disease exists' do
       it 'returns status code 200' do
@@ -64,10 +67,10 @@ RSpec.describe "Diseases", type: :request do
 
   # Test suite for PUT /specialities/:speciality_id/disease
   describe 'POST /specialities/:speciality_id/disease' do
-    let(:valid_attributes) { { name: 'Visit Narnia', done: false } }
+    let(:valid_attributes) { { name: 'Visit Narnia', description: 'Visit', prevention: 'eat', treatment: 'eat' }.to_json }
 
     context 'when request attributes are valid' do
-      before { post "/specialities/#{speciality_id}/disease", params: valid_attributes }
+      before { post "/specialities/#{speciality_id}/diseases", params: valid_attributes, headers: headers }
 
       it 'returns status code 201' do
         expect(response).to have_http_status(201)
@@ -75,7 +78,7 @@ RSpec.describe "Diseases", type: :request do
     end
 
     context 'when an invalid request' do
-      before { post "/specialities/#{speciality_id}/disease", params: {} }
+      before { post "/specialities/#{speciality_id}/diseases", params: {}, headers: headers }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
@@ -88,10 +91,10 @@ RSpec.describe "Diseases", type: :request do
   end
 
   # Test suite for PUT /specialities/:speciality_id/disease/:id
-  describe 'PUT /specialities/:speciality_id/disease/:id' do
-    let(:valid_attributes) { { name: 'Mozart' } }
+  describe 'PUT /specialities/:speciality_id/diseases/:id' do
+    let(:valid_attributes) { { name: 'Mozart' }.to_json }
 
-    before { put "/specialities/#{speciality_id}/disease/#{id}", params: valid_attributes }
+    before { put "/specialities/#{speciality_id}/diseases/#{id}", params: valid_attributes, headers: headers }
 
     context 'when disease exists' do
       it 'returns status code 204' do
@@ -119,11 +122,10 @@ RSpec.describe "Diseases", type: :request do
 
   # Test suite for DELETE /specialities/:id
   describe 'DELETE /specialities/:id' do
-    before { delete "/specialities/#{speciality_id}/disease/#{id}" }
+    before { delete "/specialities/#{speciality_id}/diseases/#{id}", params: {}, headers: headers }
 
     it 'returns status code 204' do
       expect(response).to have_http_status(204)
     end
   end
 end
-

@@ -1,6 +1,8 @@
-class SpecialitiesController < ApplicationController
-  before_action :set_speciality, only: [:show, :update, :destroy]
+# frozen_string_literal: true
 
+class SpecialitiesController < ApplicationController
+  before_action :set_speciality, only: %i[show update destroy doctors]
+  skip_before_action :authorize_request, only: %i[index show]
   # GET /specialities
   def index
     @specialities = Speciality.all
@@ -9,13 +11,13 @@ class SpecialitiesController < ApplicationController
 
   # POST /specialities
   def create
-    @speciality = Speciality.create!(speciality_params)
+    @speciality = current_user.specialities.create!(speciality_params)
     json_response(@speciality, :created)
   end
 
   # GET /specialities/:id
   def show
-    json_response(@speciality)
+    render json: @speciality, include: :doctors
   end
 
   # PUT /specialities/:id

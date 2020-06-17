@@ -1,0 +1,48 @@
+AllCops:
+  Exclude:
+    - "bin/*"
+    - "db/**/*"
+    - "config/**/*"
+    - "Guardfile"
+    - "Rakefile"
+    - "node_modules/**/*"
+  DisplayCopNames: true
+
+Layout/LineLength:
+  Max: 220
+Metrics/MethodLength:
+  Include: ["app/controllers/*"]
+  Max: 20
+Metrics/AbcSize:
+  Include: ["app/controllers/*"]
+  Max: 30
+Metrics/ClassLength:
+  Max: 150
+Metrics/BlockLength:
+  ExcludedMethods: ["describe","define","factory"]
+
+Style/Documentation:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/GuardClause:
+  Enabled: false
+
+Layout/ExtraSpacing:
+  AllowForAlignment: false
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
+  EnforcedStyle: indented
+
+Lint/Void:
+  Enabled: false
+Lint/RaiseException: 
+  Enabled: true
+Lint/StructNewOverride: 
+  Enabled: true
+Style/HashEachMethods: 
+  Enabled: true
+Style/HashTransformKeys: 
+  Enabled: true
+Style/HashTransformValues: 
+  Enabled: true

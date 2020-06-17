@@ -4,6 +4,7 @@ class CreateSpecialities < ActiveRecord::Migration[6.0]
       t.string :name
       t.text :description
       t.string :created_by
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 # This will guess the User class
 FactoryBot.define do
   factory :disease do
     name { Faker::Lorem.word }
-    description  { Faker::Lorem.sentence}
+    description { Faker::Lorem.sentence }
     prevention { Faker::Lorem.sentence }
     treatment { Faker::Lorem.sentence }
-    speciality_id nil
+    speciality
   end
 end
